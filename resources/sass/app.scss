@@ -1,0 +1,19 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+table {
+    td, th {
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

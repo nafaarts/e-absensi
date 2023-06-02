@@ -40,33 +40,36 @@
                 <ul class="navbar-nav ms-auto">
                     @can('is_admin')
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                            <a @class(['nav-link', 'active' => request()->routeIs('dashboard')]) href="{{ route('dashboard') }}">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('perizinan.index') }}">Perizinan</a>
+                            <a @class(['nav-link', 'active' => request()->routeIs('perizinan*')]) href="{{ route('perizinan.index') }}">Perizinan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('users.index') }}">User</a>
+                            <a @class(['nav-link', 'active' => request()->routeIs('users*')]) href="{{ route('users.index') }}">User</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('export') }}">Ekspor</a>
+                            <a @class(['nav-link', 'active' => request()->routeIs('export')]) href="{{ route('export') }}">Ekspor</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('jadwal.index') }}">Jadwal</a>
+                            <a @class(['nav-link', 'active' => request()->routeIs('jadwal*')]) href="{{ route('jadwal.index') }}">Jadwal</a>
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('absensi') }}">Absensi</a>
+                            <a @class(['nav-link', 'active' => request()->routeIs('absensi*')]) href="{{ route('absensi') }}">Absensi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('riwayat') }}">Riwayat</a>
+                            <a @class(['nav-link', 'active' => request()->routeIs('riwayat*')]) href="{{ route('riwayat') }}">Riwayat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('izin.index') }}">Perizinan</a>
+                            <a @class(['nav-link', 'active' => request()->routeIs('izin*')]) href="{{ route('izin.index') }}">Perizinan</a>
                         </li>
                     @endcan
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a @class([
+                            'nav-link dropdown-toggle',
+                            'active' => request()->routeIs('profil'),
+                        ]) href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ auth()->user()->nama }}
                         </a>

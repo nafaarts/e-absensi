@@ -47,8 +47,8 @@ class RiwayatController extends Controller
             ->whereYear('created_at', '=', $year)
             ->get();
 
-         // looping data sebanyak jumlah hari dalam bulan.
-         for ($i = 0; $i < $jumlahHariDalamBulan; $i++) {
+        // looping data sebanyak jumlah hari dalam bulan.
+        for ($i = 0; $i < $jumlahHariDalamBulan; $i++) {
             // buat tanggal dari index di tambah 1
             $tanggal = $i + 1;
 
@@ -57,7 +57,7 @@ class RiwayatController extends Controller
 
             // filter data absensi yang sudah di ambil dari database di atas berdasarkan tanggal (dari index)
             // dan ambil yang pertama
-            $data = $absensi->filter(fn($item) => explode(' ', $item->created_at)[0] == now()->create($year, $month, $i + 1)->format('Y-m-d'))->first();
+            $data = $absensi->filter(fn ($item) => explode(' ', $item->created_at)[0] == now()->create($year, $month, $i + 1)->format('Y-m-d'))->first();
 
             // simpan ke dalam sebuah array agar dapat di looping di tampilan
             $dataAbsensi[$i] = [
@@ -85,7 +85,7 @@ class RiwayatController extends Controller
 
     public function detail(User $user, Absensi $absensi)
     {
-         // tampilkan halaman detail yang ada di folder resources/views/admin/riwayat/riwayat-detail.blade.php
+        // tampilkan halaman detail yang ada di folder resources/views/admin/riwayat/riwayat-detail.blade.php
         // dan lampirkan variable user dan absensi yang ada diparameter.
         return view('admin.riwayat.riwayat-detail', compact('user', 'absensi'));
     }

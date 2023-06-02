@@ -31,7 +31,7 @@ class UserController extends Controller
             'nama' => 'required',
             'nip' => 'required',
             'jabatan' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:8|confirmed',
             'hak_akses' => 'required'
         ]);
@@ -48,9 +48,9 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-       // tampilkan halaman index edit yang ada di folder resources/views/admin/users/edit.blade.php
-       // dan kirimkan data user yang ada diparameter.
-       return view('admin.users.edit', compact('user'));
+        // tampilkan halaman index edit yang ada di folder resources/views/admin/users/edit.blade.php
+        // dan kirimkan data user yang ada diparameter.
+        return view('admin.users.edit', compact('user'));
     }
 
     public function update(Request $request, User $user)
@@ -60,7 +60,7 @@ class UserController extends Controller
             'nama' => 'required',
             'nip' => 'required',
             'jabatan' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email,' . $user->id,
             'password' => 'nullable|min:8|confirmed',
             'hak_akses' => 'required'
         ]);

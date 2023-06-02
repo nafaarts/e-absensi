@@ -322,6 +322,10 @@
             }, 1000);
         }
 
+        function activateButton() {
+            document.getElementById('absen-button').disabled = false;
+        }
+
         // Panggil fungsi pengambilan lokasi user agar dijalankan.
         getUserLocation();
     </script>

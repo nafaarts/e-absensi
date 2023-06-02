@@ -9,8 +9,8 @@ class PerizinanController extends Controller
 {
     public function index()
     {
-        // ambil data perizinan di database dan sort dari yang paling terbaru.
-        $perizinan = Perizinan::latest()->paginate();
+        // ambil data perizinan pada hari ini di database dan sort dari yang paling terbaru.
+        $perizinan = Perizinan::whereDate('created_at', now()->today())->latest()->paginate();
 
         // tampilkan halaman index yang ada di folder resources/views/admin/perizinan/index.blade.php
         // dan kirimkan data perizinan ke halaman melalui compact dibawah.

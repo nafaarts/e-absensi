@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(LogAktivitas::class);
     }
+
+    public function absensi()
+    {
+        return $this->hasMany(Absensi::class);
+    }
 }

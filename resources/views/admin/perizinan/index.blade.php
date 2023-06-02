@@ -8,6 +8,7 @@
             <strong>Berhasil!</strong> {{ session('berhasil') }}
         </div>
     @endif
+    <small class="d-block mb-2">Menampilkan data perizinan pada hari ini.</small>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>

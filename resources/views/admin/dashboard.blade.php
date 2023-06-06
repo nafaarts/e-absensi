@@ -5,32 +5,32 @@
         <div class="col-md-3 pb-2">
             <a href="{{ route('users.index') }}" class="text-decoration-none">
                 <div class="card bg-primary rounded-0 p-3 clickable">
-                    <small class="text-muted">Total User</small>
-                    <h2 class="m-0 text-black">{{ $totalUser }}</h2>
+                    <small class="text-white">Total User</small>
+                    <h2 class="m-0 text-white">{{ $totalUser }}</h2>
                 </div>
             </a>
         </div>
         <div class="col-md-3 pb-2">
             <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalUserHadir">
-                <div class="card bg-info rounded-0 p-3 clickable">
-                    <small class="text-muted">Total Hadir (hari ini)</small>
-                    <h2 class="m-0 text-black">{{ $totalHadir }}</h2>
+                <div class="card bg-success rounded-0 p-3 clickable">
+                    <small class="text-white">Total Hadir (hari ini)</small>
+                    <h2 class="m-0 text-white">{{ $totalHadir }}</h2>
                 </div>
             </a>
         </div>
         <div class="col-md-3 pb-2">
             <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalUserTidakHadir">
                 <div class="card bg-danger rounded-0 p-3 clickable">
-                    <small class="text-muted">Total Tidak Hadir (hari ini)</small>
-                    <h2 class="m-0 text-black">{{ $totalTidakHadir }}</h2>
+                    <small class="text-white">Total Tidak Hadir (hari ini)</small>
+                    <h2 class="m-0 text-white">{{ $totalTidakHadir }}</h2>
                 </div>
             </a>
         </div>
         <div class="col-md-3 pb-2">
             <a href="{{ route('perizinan.index') }}" class="text-decoration-none">
                 <div class="card bg-warning rounded-0 p-3 clickable">
-                    <small class="text-muted">Total Izin</small>
-                    <h2 class="m-0 text-black">{{ $totalIzin }}</h2>
+                    <small class="text-white">Total Izin</small>
+                    <h2 class="m-0 text-white">{{ $totalIzin }}</h2>
                 </div>
             </a>
         </div>

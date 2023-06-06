@@ -26,7 +26,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary border-bottom">
         <div class="container">
             <a class="navbar-brand" href="{{ route('dashboard') }}">
                 <img src="{{ asset('logo.png') }}" height="30" class="d-inline-block align-top" alt="">

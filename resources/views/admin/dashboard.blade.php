@@ -44,7 +44,7 @@
     </style>
 
     <div class="table-responsive">
-        <table class="table table-bordered table-striped-columns mb-0">
+        <table class="table table-bordered table-striped mb-0">
             <thead>
                 <tr>
                     <th scope="col" class="bg-primary">Waktu</th>

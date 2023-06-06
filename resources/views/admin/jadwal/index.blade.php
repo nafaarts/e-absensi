@@ -9,7 +9,7 @@
         </div>
     @endif
     <div class="table-responsive">
-        <table class="table table-bordered table-striped-columns">
+        <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th scope="col" class="bg-primary">Hari</th>

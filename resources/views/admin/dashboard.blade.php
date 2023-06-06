@@ -29,8 +29,8 @@
         <div class="col-md-3 pb-2">
             <a href="{{ route('perizinan.index') }}" class="text-decoration-none">
                 <div class="card bg-warning rounded-0 p-3 clickable">
-                    <small class="text-white">Total Izin</small>
-                    <h2 class="m-0 text-white">{{ $totalIzin }}</h2>
+                    <small class="text-black">Total Izin</small>
+                    <h2 class="m-0 text-black">{{ $totalIzin }}</h2>
                 </div>
             </a>
         </div>

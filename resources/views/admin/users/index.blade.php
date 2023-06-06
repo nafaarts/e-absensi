@@ -19,7 +19,7 @@
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Cari user" name="cari">
             <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
-                <i class="fas fa-fw fa-search"></i>
+                <i class="bi bi-search"></i>
             </button>
         </div>
     </form>

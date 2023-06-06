@@ -15,6 +15,14 @@
             <strong>Berhasil!</strong> {{ session('berhasil') }}
         </div>
     @endif
+    <form action="{{ route('users.index') }}" method="GET">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Cari user" name="cari">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
+                <i class="fas fa-fw fa-search"></i>
+            </button>
+        </div>
+    </form>
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>

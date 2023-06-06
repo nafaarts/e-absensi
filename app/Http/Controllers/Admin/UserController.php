@@ -11,7 +11,7 @@ class UserController extends Controller
     public function index()
     {
         // ambil semua data user didatabase.
-        $users = User::where('hak_akses', '!=', 'admin')->paginate(15);
+        $users = User::where('hak_akses', '!=', 'admin')->filter()->paginate(15);
 
         // tampilkan halaman index user yang ada di folder resources/views/admin/users/index.blade.php
         // dan kirimkan semua data users divariable $users.

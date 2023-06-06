@@ -45,6 +45,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function scopeFilter($query)
+    {
+        $query->where('nama', 'LIKE', '%' . request("cari") . '%')
+            ->orWhere('nip', 'LIKE', '%' . request("cari") . '%')
+            ->orWhere('jabatan', 'LIKE', '%' . request("cari") . '%')
+            ->orWhere('email', 'LIKE', '%' . request("cari") . '%');
+    }
+
     public function logAktifitas()
     {
         return $this->hasMany(LogAktivitas::class);

@@ -24,15 +24,15 @@
         </div>
     </form>
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-striped-columns">
             <thead>
                 <tr>
-                    <th scope="col">Nama</th>
-                    <th scope="col">NIP</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Jabatan</th>
-                    <th scope="col">Tipe</th>
-                    <th scope="col">Aksi</th>
+                    <th scope="col" class="bg-primary">Nama</th>
+                    <th scope="col" class="bg-primary">NIP</th>
+                    <th scope="col" class="bg-primary">Email</th>
+                    <th scope="col" class="bg-primary">Jabatan</th>
+                    <th scope="col" class="bg-primary">Tipe</th>
+                    <th scope="col" class="bg-primary">Aksi</th>
                 </tr>
             </thead>
             <tbody>

@@ -44,13 +44,13 @@
     </style>
 
     <div class="table-responsive">
-        <table class="table table-bordered mb-0">
+        <table class="table table-bordered table-striped-columns mb-0">
             <thead>
                 <tr>
-                    <th scope="col">Waktu</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Jabatan</th>
-                    <th scope="col">Deskripsi</th>
+                    <th scope="col" class="bg-primary">Waktu</th>
+                    <th scope="col" class="bg-primary">Nama</th>
+                    <th scope="col" class="bg-primary">Jabatan</th>
+                    <th scope="col" class="bg-primary">Deskripsi</th>
                 </tr>
             </thead>
             <tbody>

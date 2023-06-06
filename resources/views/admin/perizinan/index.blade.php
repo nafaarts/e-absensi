@@ -10,13 +10,13 @@
     @endif
     <small class="d-block mb-2">Menampilkan data perizinan pada hari ini.</small>
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-striped-columns">
             <thead>
                 <tr>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Waktu</th>
-                    <th scope="col">Aksi</th>
+                    <th scope="col" class="bg-primary">Nama</th>
+                    <th scope="col" class="bg-primary">Status</th>
+                    <th scope="col" class="bg-primary">Waktu</th>
+                    <th scope="col" class="bg-primary">Aksi</th>
                 </tr>
             </thead>
             <tbody>

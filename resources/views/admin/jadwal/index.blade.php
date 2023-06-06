@@ -9,13 +9,13 @@
         </div>
     @endif
     <div class="table-responsive">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-striped-columns">
             <thead>
                 <tr>
-                    <th scope="col">Hari</th>
-                    <th scope="col">Jam Masuk</th>
-                    <th scope="col">Jam Keluar</th>
-                    <th scope="col">Aksi</th>
+                    <th scope="col" class="bg-primary">Hari</th>
+                    <th scope="col" class="bg-primary">Jam Masuk</th>
+                    <th scope="col" class="bg-primary">Jam Keluar</th>
+                    <th scope="col" class="bg-primary">Aksi</th>
                 </tr>
             </thead>
             <tbody>

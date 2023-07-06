@@ -22,7 +22,7 @@ Route::get('/', function () {
 // authentikasi
 Auth::routes([
     'register' => false,
-    'reset' => false
+    'reset' => true
 ]);
 
 // bungkus dengan middleware agar yang bisa akses route didalamnya hanya user yang sudah login.

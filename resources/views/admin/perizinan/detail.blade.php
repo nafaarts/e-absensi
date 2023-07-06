@@ -6,13 +6,8 @@
         <button @class([
             'btn btn-sm',
             'btn-success' => !$perizinan->status_izin,
-            'btn-danger' => $perizinan->status_izin,
+            'btn-danger text-white' => $perizinan->status_izin,
         ]) onclick="document.getElementById('form-update-izin').submit()">
-            <i @class([
-                'bi',
-                'bi-check-circle-fill' => $perizinan->status_izin,
-                'bi-x-circle-fill' => !$perizinan->status_izin,
-            ])></i>
             {{ $perizinan->status_izin ? 'Batalkan Perizinan' : 'Izinkan' }}
         </button>
     </div>

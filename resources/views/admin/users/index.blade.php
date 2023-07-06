@@ -44,15 +44,24 @@
                         <td>{{ $item->jabatan }}</td>
                         <td>{{ $item->hak_akses }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('users.riwayat', $item) }}">
-                                <i class="bi bi-calendar-week"></i>
-                            </a>
-                            <a class="btn btn-sm btn-warning" href="{{ route('users.edit', $item) }}">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <button class="btn btn-sm btn-danger">
-                                <i class="bi bi-trash"></i>
-                            </button>
+                            <div class="d-flex gap-1">
+                                <a class="btn btn-sm btn-primary" href="{{ route('users.riwayat', $item) }}">
+                                    <i class="bi bi-calendar-week"></i>
+                                </a>
+                                <a class="btn btn-sm btn-warning" href="{{ route('users.edit', $item) }}">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <div>
+                                    <form action="{{ route('users.destroy', $item) }}" method="post"
+                                        onsubmit="return confirm('apa kamu yakin untuk menghapus user ini?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-danger">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 @empty

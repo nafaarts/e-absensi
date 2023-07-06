@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login') }}" class="mb-3">
                 @csrf
                 <div class="mb-2">
                     <label for="email" class="form-label">Alamat Email</label>
@@ -33,11 +33,6 @@
                         <button type="submit" class="btn btn-primary">
                             {{ __('Login') }}
                         </button>
-                        @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
-                            </a>
-                        @endif
                     </div>
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
@@ -48,6 +43,14 @@
                     </div>
                 </div>
             </form>
+            <small>
+                @if (Route::has('password.request'))
+                    Lupa Password? <a href="{{ route('password.request') }}">
+                        Reset
+                    </a>
+                @endif
+            </small>
         </div>
+
     </div>
 @endsection

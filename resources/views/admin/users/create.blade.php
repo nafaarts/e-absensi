@@ -31,8 +31,8 @@
         </div>
 
         <div class="form-group mb-3">
-            <label for="jabatan">Jabatan</label>
-            <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Masukan jabatan"
+            <label for="jabatan">Profesi</label>
+            <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Masukan Profesi"
                 value="{{ old('jabatan') }}">
             @error('jabatan')
                 <small class="text-danger">

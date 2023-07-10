@@ -26,7 +26,7 @@ class AbsensiExport implements FromCollection, ShouldAutoSize, WithHeadings
         return [
             'Nama',
             'Kategori',
-            'Jabatan',
+            'Profesi',
             'Jumlah Hadir',
             'Jumlah Tidak Hadir',
             'Jumlah Izin',
@@ -55,7 +55,7 @@ class AbsensiExport implements FromCollection, ShouldAutoSize, WithHeadings
         foreach ($users as $user) {
             $userData['nama'] = $user->nama;
             $userData['kategori'] = $user->hak_akses;
-            $userData['jabatan'] = $user->jabatan;
+            $userData['profesi'] = $user->jabatan;
 
             $hadir = 0;
             $tidak_hadir = 0;

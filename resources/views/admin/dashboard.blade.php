@@ -49,7 +49,7 @@
                 <tr>
                     <th scope="col" class="bg-primary">Waktu</th>
                     <th scope="col" class="bg-primary">Nama</th>
-                    <th scope="col" class="bg-primary">Jabatan</th>
+                    <th scope="col" class="bg-primary">Profesi</th>
                     <th scope="col" class="bg-primary">Deskripsi</th>
                 </tr>
             </thead>
@@ -89,7 +89,7 @@
                                     <th scope="col">Nama</th>
                                     <th scope="col">NIP</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Jabatan</th>
+                                    <th scope="col">Profesi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -135,7 +135,7 @@
                                     <th scope="col">Nama</th>
                                     <th scope="col">NIP</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Jabatan</th>
+                                    <th scope="col">Profesi</th>
                                 </tr>
                             </thead>
                             <tbody>

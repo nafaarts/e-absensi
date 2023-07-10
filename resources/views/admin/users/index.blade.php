@@ -30,7 +30,7 @@
                     <th scope="col" class="bg-primary">Nama</th>
                     <th scope="col" class="bg-primary">NIP</th>
                     <th scope="col" class="bg-primary">Email</th>
-                    <th scope="col" class="bg-primary">Jabatan</th>
+                    <th scope="col" class="bg-primary">Profesi</th>
                     <th scope="col" class="bg-primary">Tipe</th>
                     <th scope="col" class="bg-primary">Aksi</th>
                 </tr>

@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-group mb-3">
-            <label for="jabatan">Jabatan</label>
+            <label for="jabatan">Profesi</label>
             <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Masukan jabatan"
                 value="{{ old('jabatan', auth()->user()->jabatan) }}">
             @error('jabatan')

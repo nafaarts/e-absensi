@@ -24,7 +24,7 @@
                     <td>{{ $perizinan->absensi->user->nip }}</td>
                 </tr>
                 <tr>
-                    <th scope="row">Jabatan</th>
+                    <th scope="row">Profesi</th>
                     <td>{{ $perizinan->absensi->user->jabatan }}</td>
                 </tr>
                 <tr>

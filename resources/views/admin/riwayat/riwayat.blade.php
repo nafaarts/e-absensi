@@ -33,7 +33,7 @@
                     <td>{{ $user->nip }}</td>
                 </tr>
                 <tr>
-                    <th scope="row">Jabatan</th>
+                    <th scope="row">Profesi</th>
                     <td>{{ $user->jabatan }}</td>
                 </tr>
                 <tr>

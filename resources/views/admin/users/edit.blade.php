@@ -58,7 +58,8 @@
             <select name="hak_akses" id="hak_akses" class="form-select">
                 <option value="" disabled>Pilih hak akses</option>
                 @foreach (['guru', 'pegawai'] as $item)
-                    <option value="{{ $item }}" @selected(old('hak_akses', $user->hak_akses) == $item)>{{ $item }}</option>
+                    <option value="{{ $item }}" @selected(old('hak_akses', $user->hak_akses) == $item)>
+                        {{ $item == 'pegawai' ? 'STAFF' : 'GURU' }}</option>
                 @endforeach
             </select>
             @error('hak_akses')

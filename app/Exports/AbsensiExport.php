@@ -54,7 +54,7 @@ class AbsensiExport implements FromCollection, ShouldAutoSize, WithHeadings
         $data = collect([]);
         foreach ($users as $user) {
             $userData['nama'] = $user->nama;
-            $userData['kategori'] = $user->hak_akses;
+            $userData['kategori'] = $user->hak_akses == 'pegawai' ? 'STAFF' : 'GURU';
             $userData['profesi'] = $user->jabatan;
 
             $hadir = 0;

@@ -42,7 +42,7 @@
                         <td>{{ $item->nip }}</td>
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->jabatan }}</td>
-                        <td>{{ $item->hak_akses }}</td>
+                        <td>{{ $item->hak_akses == 'pegawai' ? 'STAFF' : 'GURU' }}</td>
                         <td>
                             <div class="d-flex gap-1">
                                 <a class="btn btn-sm btn-primary" href="{{ route('users.riwayat', $item) }}">

@@ -18,7 +18,7 @@
                 <option value="" disabled>Pilih kategori</option>
                 <option value="SEMUA">SEMUA</option>
                 <option value="GURU">GURU</option>
-                <option value="PEGAWAI">PEGAWAI</option>
+                <option value="PEGAWAI">STAFF</option>
             </select>
         </div>
 

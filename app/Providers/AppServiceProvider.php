@@ -26,5 +26,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('is_admin', function ($user) {
             return $user->hak_akses == 'admin';
         });
+
+        Gate::define('is_user', function ($user) {
+            return $user->hak_akses != 'admin';
+        });
     }
 }

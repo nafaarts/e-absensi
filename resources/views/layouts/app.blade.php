@@ -49,7 +49,7 @@
                             <a @class(['nav-link', 'active' => request()->routeIs('users*')]) href="{{ route('users.index') }}">User</a>
                         </li>
                         <li class="nav-item">
-                            <a @class(['nav-link', 'active' => request()->routeIs('export')]) href="{{ route('export') }}">Ekspor</a>
+                            <a @class(['nav-link', 'active' => request()->routeIs('rekap')]) href="{{ route('rekap') }}">Rekap</a>
                         </li>
                         <li class="nav-item">
                             <a @class(['nav-link', 'active' => request()->routeIs('jadwal*')]) href="{{ route('jadwal.index') }}">Jadwal</a>

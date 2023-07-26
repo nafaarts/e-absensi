@@ -21,7 +21,7 @@
     <div class="table-responsive mb-2">
         <table class="table table-bordered">
             <tbody>
-                <tr class="bg-black text-white">
+                <tr class="bg-primary text-white">
                     <th colspan="2">Data User</th>
                 </tr>
                 <tr>
@@ -45,7 +45,7 @@
     </div>
     <div class="calendar">
         @foreach (now()->getDays() as $day)
-            <div class="card p-2 text-center border m-1 bg-black text-white">
+            <div class="card p-2 text-center border m-1 bg-primary text-white">
                 <small>{{ substr($hari[$day], 0, 3) }}</small>
             </div>
         @endforeach
@@ -64,17 +64,17 @@
                     <small class="text-muted">{{ $item['tanggal'] }}</small>
                     <div class="d-flex flex-column flex-md-row gap-1">
                         @if ($item['izin'])
-                            <span class="badge border text-black bg-primary"> </span>
+                            <span class="badge border text-primary bg-primary"> </span>
                         @else
                             @if ($item['masuk'])
                                 @if ($item['telat'] > 0)
-                                    <span class="badge border text-black bg-warning"> </span>
+                                    <span class="badge border text-primary bg-warning"> </span>
                                 @else
-                                    <span class="badge border text-black bg-success"> </span>
+                                    <span class="badge border text-primary bg-success"> </span>
                                 @endif
                             @endif
                             @if ($item['keluar'])
-                                <span class="badge border text-black bg-danger"> </span>
+                                <span class="badge border text-primary bg-danger"> </span>
                             @endif
                         @endif
                     </div>

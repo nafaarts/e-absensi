@@ -6,7 +6,7 @@
     <div class="table-responsive mb-2">
         <table class="table table-bordered">
             <tbody>
-                <tr class="bg-black text-white">
+                <tr class="bg-primary text-white">
                     <th colspan="2">Data User</th>
                 </tr>
                 <tr>
@@ -34,7 +34,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>
-                            <tr class="bg-black text-white">
+                            <tr class="bg-primary text-white">
                                 <th colspan="2">Data Masuk</th>
                             </tr>
                             <tr>
@@ -70,7 +70,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>
-                            <tr class="bg-black text-white">
+                            <tr class="bg-primary text-white">
                                 <th colspan="2">Data Masuk</th>
                             </tr>
                             <tr>
@@ -106,7 +106,7 @@
         <div class="table-responsive">
             <table class="table table-bordered">
                 <tbody>
-                    <tr class="bg-black text-white">
+                    <tr class="bg-primary text-white">
                         <th colspan="2">Data Perizinan</th>
                     </tr>
                     <tr>

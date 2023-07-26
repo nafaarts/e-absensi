@@ -41,7 +41,76 @@
             background: lightgray;
             cursor: pointer;
         }
+
+        .kotak {
+            height: 10px;
+            width: 10px;
+            border-radius: 2px;
+        }
+
+        .terlambat {
+            background: orange;
+        }
+
+        .masuk {
+            background: green;
+        }
+
+        .keluar {
+            background: blue;
+        }
     </style>
+
+    <div class="card mt-3 p-3 border mb-4">
+        <small>Menampilan hasil dari : <strong>{{ $usersAttendances['periode'] }}</strong></small>
+        <div class="table-responsive my-3">
+            <table class="table table-compact">
+                <thead>
+                    <tr>
+                        @foreach ($usersAttendances['labels'] as $label)
+                            <th scope="row">
+                                {{ $label }}
+                            </th>
+                        @endforeach
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($usersAttendances['data'] as $data)
+                        <tr>
+                            <th class="text-xs d:text-sm">
+                                <a href="{{ route('users.riwayat', $data->userId) }}"
+                                    class="text-black">{{ $data->nama }}</a>
+                            </th>
+                            @foreach ($data->absensi as $absensi)
+                                <td>
+                                    @if ($absensi->izin)
+                                        <i class="bi bi-envelope-check-fill"></i>
+                                    @else
+                                        @if ($absensi->masuk)
+                                            <div class="d-flex flex-column" style="gap: 2px;">
+                                                @if ($absensi->terlambat)
+                                                    <div class="kotak terlambat"></div>
+                                                @else
+                                                    <div class="kotak masuk"></div>
+                                                @endif
+
+                                                @if ($absensi->keluar)
+                                                    <div class="kotak keluar"></div>
+                                                @endif
+                                            </div>
+                                        @else
+                                            <span>-</span>
+                                        @endif
+                                    @endif
+                                </td>
+                            @endforeach
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        {{ $usersAttendances['data']->links() }}
+    </div>
 
     <div class="table-responsive">
         <table class="table table-bordered table-striped mb-0">

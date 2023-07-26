@@ -2,28 +2,29 @@
 $body-bg: #fff;
 
 // Typography
-$font-family-sans-serif:            'Nunito', sans-serif;
-$font-size-base:                    0.9rem;
-$line-height-base:                  1.6;
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
 
 // Warna Tema
 $theme-colors: (
-  "primary":                       #76c3ed,
-  "success":                       #60ff60,
-  "danger":                        #ff4136,
-  "warning":                       #FDFD96,
-  "secondary":                     #b5b5b5
+  "primary": #76c3ed,
+  "success": #60ff60,
+  "danger": #ff4136,
+  "warning": #FDFD96,
+  "secondary": #b5b5b5,
+  "dark": #000,
 );
 
 // Border Radius
-$border-radius:                     0px;
-$border-radius-sm:                  0px;
+$border-radius: 0px;
+$border-radius-sm: 0px;
 
 // Pagination
-$component-active-bg:               #76c3ed;
-$pagination-color:                  #76c3ed;
-$pagination-padding-y:              5px;
-$pagination-padding-x:              10px;
+$component-active-bg: #76c3ed;
+$pagination-color: #76c3ed;
+$pagination-padding-y: 5px;
+$pagination-padding-x: 10px;
 
 // Modal
-$modal-content-border-radius:       0px;
+$modal-content-border-radius: 0px;

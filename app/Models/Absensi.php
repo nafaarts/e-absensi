@@ -37,4 +37,9 @@ class Absensi extends Model
     {
         return $this->hasOne(Perizinan::class, 'absensi_id');
     }
+
+    public function izinStatus()
+    {
+        return $this->izin?->status_izin == 1;
+    }
 }

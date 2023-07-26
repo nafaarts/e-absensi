@@ -41,8 +41,10 @@ Route::middleware('auth')->group(function () {
         // users
         Route::resource('/users', App\Http\Controllers\Admin\UserController::class)->except(['show']);
 
+        // Rekap
+        Route::get('/rekap', App\Http\Controllers\Admin\RekapController::class)->name('rekap');
+
         // export
-        Route::get('/export', [App\Http\Controllers\ExportController::class, 'index'])->name('export');
         Route::post('/export', [App\Http\Controllers\ExportController::class, 'absensi'])->name('export.absensi');
 
         // riwayat

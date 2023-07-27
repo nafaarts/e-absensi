@@ -16,6 +16,7 @@
                     <th scope="col" class="bg-primary">Nama</th>
                     <th scope="col" class="bg-primary">Status</th>
                     <th scope="col" class="bg-primary">Waktu</th>
+                    <th scope="col" class="bg-primary">Kategori</th>
                     <th scope="col" class="bg-primary">Aksi</th>
                 </tr>
             </thead>
@@ -38,6 +39,7 @@
                             ])></i>
                         </td>
                         <td>{{ $item->created_at }}</td>
+                        <td>{{ $item->kategori_izin }}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('perizinan.show', $item) }}">
                                 <i class="bi bi-eye"></i>
@@ -46,7 +48,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4" class="text-center">
+                        <td colspan="5" class="text-center">
                             <span>Tidak ada data.</span>
                         </td>
                     </tr>

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('absensi_id')->constrained('absensi')->onUpdate('CASCADE')->onDelete('CASCADE');
             $table->string('surat_izin')->nullable();
+            $table->enum('kategori_izin', ['SAKIT', 'IZIN'])->default('IZIN');
             $table->text('alasan_izin')->nullable();
             $table->boolean('status_izin')->default(false);
             $table->boolean('di_lihat')->default(false);

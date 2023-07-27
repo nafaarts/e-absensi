@@ -20,6 +20,7 @@
                 <tr>
                     <th scope="col">Status</th>
                     <th scope="col">Waktu</th>
+                    <th scope="col">Katagori</th>
                     <th scope="col">Alasan</th>
                     <th scope="col">Aksi</th>
                 </tr>
@@ -35,6 +36,7 @@
                             ])></i>
                         </td>
                         <td>{{ $item->created_at }}</td>
+                        <td>{{ $item->kategori_izin }}</td>
                         <td>
                             <span class="text-truncate" style="max-width: 300px">
                                 {{ $item->alasan_izin }}
@@ -48,7 +50,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4" class="text-center">
+                        <td colspan="5" class="text-center">
                             <span>Tidak ada data.</span>
                         </td>
                     </tr>
@@ -71,6 +73,21 @@
                     <div class="mb-3">
                         <label for="surat_izin" class="form-label">Surat Izin</label>
                         <input class="form-control" type="file" id="surat_izin" name="surat_izin">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Kategori Izin</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="kategori_izin" id="IZIN"
+                                value="IZIN" @checked(old('kategori_izin') == 'IZIN')>
+                            <label class="form-check-label" for="IZIN">IZIN</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="kategori_izin" id="SAKIT"
+                                value="SAKIT" @checked(old('kategori_izin') == 'SAKIT')>
+                            <label class="form-check-label" for="SAKIT">SAKIT</label>
+                        </div>
+
                     </div>
                     <div class="mb-3">
                         <label for="alasan_izin" class="form-label">Alasan Izin</label>

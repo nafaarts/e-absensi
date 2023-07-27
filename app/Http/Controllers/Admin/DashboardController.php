@@ -66,6 +66,7 @@ class DashboardController extends Controller
                 $log['masuk'] = $absensi?->logMasuk()->exists();
                 $log['keluar'] = $absensi?->logKeluar()->exists();
                 $log['izin'] = $absensi?->izinStatus();
+                $log['izinKategori'] = $absensi?->izinKategori();
                 $log['terlambat'] = $absensi?->menit_terlambat > 0;
 
                 $result['absensi'][] = (object) $log;

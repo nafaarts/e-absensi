@@ -8,7 +8,8 @@
             <small>Menampilan hasil dari : <strong>{{ $usersAttendances['periode'] }}</strong></small>
         </div>
         <div>
-            <form action="{{ route('rekap', request()->all()) }}" class="d-flex align-items-center" style="gap: 10px">
+            <form method="GET" action="{{ route('rekap', request()->all()) }}" class="d-flex align-items-center"
+                style="gap: 10px">
                 <input type="hidden" name="kategori" value="{{ request('kategori') }}">
                 <div class="input-group">
                     <label class="input-group-text"><i class="bi bi-search"></i></label>
@@ -26,7 +27,7 @@
     </div>
     <hr>
     <div class="d-flex justify-content-between align-items-center" style="gap: 10px;">
-        <form action="{{ route('rekap', request()->all()) }}" id="form-kategori">
+        <form method="GET" action="{{ route('rekap', request()->all()) }}" id="form-kategori">
             <input type="hidden" name="cari" value="{{ request('cari') }}">
             <input type="hidden" name="periode" value="{{ request('periode') }}">
             <div class="btn-group" role="group">

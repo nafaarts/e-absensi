@@ -42,4 +42,9 @@ class Absensi extends Model
     {
         return $this->izin?->status_izin == 1;
     }
+
+    public function izinKategori()
+    {
+        return $this->izin?->kategori_izin[0];
+    }
 }

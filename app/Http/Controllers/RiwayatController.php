@@ -55,7 +55,7 @@ class RiwayatController extends Controller
 
             // filter data absensi yang sudah di ambil dari database di atas berdasarkan tanggal (dari index)
             // dan ambil yang pertama
-            $data = $absensi->filter(fn($item) => explode(' ', $item->created_at)[0] == now()->create($year, $month, $i + 1)->format('Y-m-d'))->first();
+            $data = $absensi->filter(fn ($item) => explode(' ', $item->created_at)[0] == now()->create($year, $month, $i + 1)->format('Y-m-d'))->first();
 
             // simpan ke dalam sebuah array agar dapat di looping di tampilan
             $dataAbsensi[$i] = [
@@ -66,7 +66,7 @@ class RiwayatController extends Controller
                 'masuk' => $data?->logMasuk ? true : false,
                 'telat' => $data?->menit_terlambat ?? 0,
                 'keluar' => $data?->logKeluar ? true : false,
-                'izin' => $data?->izin ? true : false
+                'izin' => $data?->izin?->status_izin ?? false
             ];
         }
 

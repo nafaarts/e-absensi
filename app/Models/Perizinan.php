@@ -14,6 +14,7 @@ class Perizinan extends Model
     protected $fillable = [
         'absensi_id',
         'surat_izin',
+        'kategori_izin',
         'alasan_izin',
         'status_izin',
         'di_lihat'

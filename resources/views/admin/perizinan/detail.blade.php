@@ -32,6 +32,10 @@
                     <td>{{ $perizinan->status_izin ? 'DIIZINKAN' : 'BELUM DIIZINKAN' }}</td>
                 </tr>
                 <tr>
+                    <th scope="row">Kategori</th>
+                    <td>{{ $perizinan->kategori_izin }}</td>
+                </tr>
+                <tr>
                     <th scope="row">Surat</th>
                     <td>
                         <a href="{{ asset('storage/perizinan/' . $perizinan->surat_izin) }}" target="_blank">

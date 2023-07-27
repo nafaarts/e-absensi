@@ -27,6 +27,7 @@ class PerizinanController extends Controller
         $request->validate([
             'surat_izin' => 'required|mimes:jpg,jpeg,png,pdf',
             'alasan_izin' => 'required',
+            'kategori_izin' => 'required',
         ]);
 
         // ambil data absensi hari ini (jika ada)
@@ -48,6 +49,7 @@ class PerizinanController extends Controller
             'absensi_id' => $absensiHariIni->id,
             'surat_izin' => $request->file('surat_izin')->hashName(),
             'alasan_izin' => $request->alasan_izin,
+            'kategori_izin' => $request->kategori_izin,
         ]);
 
         // tambah log aktifitas (deskripsi) ke database

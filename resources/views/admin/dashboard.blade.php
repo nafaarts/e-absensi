@@ -84,7 +84,8 @@
                             @foreach ($data->absensi as $absensi)
                                 <td>
                                     @if ($absensi->izin)
-                                        <i class="bi bi-envelope-check-fill"></i>
+                                        {{-- <i class="bi bi-envelope-check-fill"></i> --}}
+                                        <b class="text-primary">{{ $absensi->izinKategori }}</b>
                                     @else
                                         @if ($absensi->masuk)
                                             <div class="d-flex flex-column" style="gap: 2px;">

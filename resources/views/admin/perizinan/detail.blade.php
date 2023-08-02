@@ -3,13 +3,15 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center">
         <h5 class="m-0">Detail Izin</h5>
-        <button @class([
-            'btn btn-sm',
-            'btn-success' => !$perizinan->status_izin,
-            'btn-danger text-white' => $perizinan->status_izin,
-        ]) onclick="document.getElementById('form-update-izin').submit()">
-            {{ $perizinan->status_izin ? 'Batalkan Perizinan' : 'Izinkan' }}
-        </button>
+        @if (!$perizinan->status_izin)
+            <button @class([
+                'btn btn-sm',
+                'btn-success' => !$perizinan->status_izin,
+                'btn-danger text-white' => $perizinan->status_izin,
+            ]) onclick="document.getElementById('form-update-izin').submit()">
+                {{ $perizinan->status_izin ? 'Batalkan Perizinan' : 'Izinkan' }}
+            </button>
+        @endif
     </div>
     <hr>
     <div class="table-responsive">
@@ -30,6 +32,10 @@
                 <tr>
                     <th scope="row">Status</th>
                     <td>{{ $perizinan->status_izin ? 'DIIZINKAN' : 'BELUM DIIZINKAN' }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Jumlah</th>
+                    <td>{{ $perizinan->jumlah_hari }} hari</td>
                 </tr>
                 <tr>
                     <th scope="row">Kategori</th>

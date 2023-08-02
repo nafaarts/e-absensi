@@ -59,6 +59,7 @@ class RekapController extends Controller
                     $log['keluar'] = $absensi?->logKeluar()->exists();
                     $log['izin'] = $absensi?->izinStatus();
                     $log['terlambat'] = $absensi?->menit_terlambat > 0;
+                    $log['izinKategori'] = $absensi?->izinKategori();
 
                     $result['absensi'][] = (object) $log;
                 }

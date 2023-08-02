@@ -27,6 +27,7 @@ class PerizinanController extends Controller
         $request->validate([
             'surat_izin' => 'required|mimes:jpg,jpeg,png,pdf',
             'alasan_izin' => 'required',
+            'jumlah_hari' => 'required',
             'kategori_izin' => 'required',
         ]);
 
@@ -49,6 +50,7 @@ class PerizinanController extends Controller
             'absensi_id' => $absensiHariIni->id,
             'surat_izin' => $request->file('surat_izin')->hashName(),
             'alasan_izin' => $request->alasan_izin,
+            'jumlah_hari' => $request->jumlah_hari,
             'kategori_izin' => $request->kategori_izin,
         ]);
 

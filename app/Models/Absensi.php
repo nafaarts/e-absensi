@@ -15,7 +15,9 @@ class Absensi extends Model
     protected $fillable = [
         'user_id',
         'menit_terlambat',
-        'menit_lembur'
+        'menit_lembur',
+        'created_at',
+        'updated_at'
     ];
 
     public function user()

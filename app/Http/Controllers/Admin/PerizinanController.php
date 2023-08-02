@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Absensi;
 use App\Models\Perizinan;
+use App\Http\Controllers\Controller;
 
 class PerizinanController extends Controller
 {
@@ -38,8 +39,31 @@ class PerizinanController extends Controller
     {
         // ubah status perizinan terkait di database
         $perizinan->update([
-            'status_izin' => !$perizinan->status_izin
+            'status_izin' => 1
         ]);
+
+        if ($perizinan->jumlah_hari > 1) {
+            $data = [];
+            for ($i = 1; $i <= $perizinan->jumlah_hari - 1; $i++) {
+                $absensi = Absensi::create([
+                    'user_id' => $perizinan->absensi->user->id,
+                    "created_at" => now()->addDay($i)->format('Y-m-d H:i:s'),
+                    "updated_at" => now()->addDay($i)->format('Y-m-d H:i:s'),
+                ]);
+
+                Perizinan::create([
+                    "absensi_id" => $absensi->id,
+                    "surat_izin" => $perizinan->surat_izin,
+                    "kategori_izin" => $perizinan->kategori_izin,
+                    "alasan_izin" => $perizinan->alasan_izin,
+                    "jumlah_hari" => $perizinan->jumlah_hari,
+                    "status_izin" => 1,
+                    "di_lihat" => 1,
+                    "created_at" => now()->addDay($i)->format('Y-m-d H:i:s'),
+                    "updated_at" => now()->addDay($i)->format('Y-m-d H:i:s'),
+                ]);
+            }
+        }
 
         // kembalikan ke halaman index beserta pesan berhasil
         return redirect()->route('perizinan.index')->with('berhasil', 'Status perizinan berhasil diubah.');

@@ -71,8 +71,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="surat_izin" class="form-label">Surat Izin</label>
+                        <label for="surat_izin" class="form-label">Bukti / Surat Izin</label>
                         <input class="form-control" type="file" id="surat_izin" name="surat_izin">
+                    </div>
+                    <div class="mb-3">
+                        <label for="jumlah_hari" class="form-label">Jumlah Hari</label>
+                        <input class="form-control" type="number" min="1" max="6"
+                            value="{{ old('jumlah_hari', 1) }}" id="jumlah_hari" name="jumlah_hari">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Kategori Izin</label>
@@ -87,7 +92,16 @@
                                 value="SAKIT" @checked(old('kategori_izin') == 'SAKIT')>
                             <label class="form-check-label" for="SAKIT">SAKIT</label>
                         </div>
-
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="kategori_izin" id="CUTI"
+                                value="CUTI" @checked(old('kategori_izin') == 'CUTI')>
+                            <label class="form-check-label" for="CUTI">CUTI</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="kategori_izin" id="DINAS"
+                                value="DINAS" @checked(old('kategori_izin') == 'DINAS')>
+                            <label class="form-check-label" for="DINAS">DINAS</label>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="alasan_izin" class="form-label">Alasan Izin</label>

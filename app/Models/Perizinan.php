@@ -16,8 +16,11 @@ class Perizinan extends Model
         'surat_izin',
         'kategori_izin',
         'alasan_izin',
+        'jumlah_hari',
         'status_izin',
-        'di_lihat'
+        'di_lihat',
+        'created_at',
+        'updated_at'
     ];
 
     public function absensi()

@@ -46,23 +46,28 @@ class DashboardController extends Controller
 
         // buat label
         $firstDateOfWeek = now()->subDays(now()->dayOfWeek - 1);
-        $labels[] = 'Nama';
         $dayOfWeek = $firstDateOfWeek->day;
+        $labels[] = 'Nama';
+        $dates = [];
+
         for ($o = $dayOfWeek; $o <= 5 + $dayOfWeek; $o++) {
-            $labels[] = now()->create(date('Y'), date('m'), $o)->format('d-M');
+            $date = now()->create(date('Y'), $firstDateOfWeek->month, $o);
+            $dates[] = $date;
+            $labels[] = $date->format('d-M');
         }
 
         // inisialisasi data absensi
         $usersAttendances['labels'] = $labels;
         $usersAttendances['periode'] = $firstDateOfWeek->format('d-m-Y') . ' - ' . $firstDateOfWeek->addDays(5)->format('d-m-Y');
-        $usersAttendances['data'] = User::whereNot('hak_akses', 'admin')->latest()->paginate()->through(function ($data) use ($dayOfWeek) {
+        $usersAttendances['data'] = User::whereNot('hak_akses', 'admin')->latest()->paginate()->through(function ($data) use ($dates) {
             $result['nama'] = $data->nama;
             $result['userId'] = $data->id;
 
-            for ($o = $dayOfWeek; $o <= 5 + $dayOfWeek; $o++) {
-                $tanggal = now()->create(date('Y'), date('m'), $o)->format('Y-m-d');
-
+            for ($o = 0; $o < 6; $o++) {
+                $tanggal = $dates[$o]->format('Y-m-d');
                 $absensi = $data->absensi()->whereDate('created_at', $tanggal)->first();
+
+                $log['tanggal'] = $tanggal;
                 $log['masuk'] = $absensi?->logMasuk()->exists();
                 $log['keluar'] = $absensi?->logKeluar()->exists();
                 $log['izin'] = $absensi?->izinStatus();

@@ -53,13 +53,15 @@ class RekapController extends Controller
 
                 for ($o = 1; $o <= $totalDays; $o++) {
                     $tanggal = now()->create($year, $month, $o)->format('Y-m-d');
-
                     $absensi = $data->absensi()->whereDate('created_at', $tanggal)->first();
+
+                    $log['tanggal'] = $tanggal;
                     $log['masuk'] = $absensi?->logMasuk()->exists();
                     $log['keluar'] = $absensi?->logKeluar()->exists();
                     $log['izin'] = $absensi?->izinStatus();
-                    $log['terlambat'] = $absensi?->menit_terlambat > 0;
                     $log['izinKategori'] = $absensi?->izinKategori();
+
+                    $log['terlambat'] = $absensi?->menit_terlambat > 0;
 
                     $result['absensi'][] = (object) $log;
                 }

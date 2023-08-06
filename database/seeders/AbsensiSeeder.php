@@ -54,7 +54,11 @@ class AbsensiSeeder extends Seeder
             'Sat' => 'sabtu',
         ];
 
-        $totalDays = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+        if ($month == now()->month) {
+            $totalDays = now()->day;
+        } else {
+            $totalDays = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+        }
 
         $users = User::whereNot('hak_akses', 'admin')->orderBy('jabatan')->get();
         foreach ($users as $user) {

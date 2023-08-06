@@ -31,7 +31,7 @@ class AbsensiExport implements FromCollection, ShouldAutoSize, WithHeadings
             'Jumlah Tidak Hadir',
             'Jumlah Izin',
             'Menit Terlambat',
-            'Menit Lembur'
+            // 'Menit Lembur'
         ];
     }
 
@@ -86,7 +86,7 @@ class AbsensiExport implements FromCollection, ShouldAutoSize, WithHeadings
             $userData['jumlah_izin'] = $izin;
 
             $userData['menit_terlambat'] = $terlambat;
-            $userData['menit_lembur'] = $lembur;
+            // $userData['menit_lembur'] = $lembur;
 
             $data->push($userData);
         }

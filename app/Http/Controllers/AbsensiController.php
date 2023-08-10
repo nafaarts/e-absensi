@@ -61,8 +61,11 @@ class AbsensiController extends Controller
                 return back()->with('gagal', 'Absen masuk hanya dapat dilakukan sebelum jam keluar.');
             }
 
+            // dispensasi jam masuk selama 10 menit
+            $jamMasuk = now()->parse($jadwalAbsen?->jam_masuk)->addMinutes(10);
+
             // hitung jumlah menit terlambat
-            $telat = now()->diffInMinutes($jadwalAbsen?->jam_masuk, false); // kalo mines berarti telat
+            $telat = now()->diffInMinutes($jamMasuk, false); // kalo mines berarti telat
 
             // buat data absensi dan masukan ke database
             $absensi = Absensi::create([
@@ -84,7 +87,7 @@ class AbsensiController extends Controller
             // tambah log aktifitas (deskripsi) ke database
             LogAktivitas::create([
                 'user_id' => auth()->id(),
-                'deskripsi' => 'Melakukan Absensi Masuk pada ' . now()->format('H:i') . ' WIB ' . ($telat < 0 ? ' (Terlambat ' . ($telat * -1). ' Menit)' : '')
+                'deskripsi' => 'Melakukan Absensi Masuk pada ' . now()->format('H:i') . ' WIB ' . ($telat < 0 ? ' (Terlambat ' . ($telat * -1) . ' Menit)' : '')
             ]);
 
             // kembalikan ke halaman sebelumnya dengan pesan berhasil.
@@ -106,8 +109,8 @@ class AbsensiController extends Controller
                 'menit_lembur' => $lembur < 0 ? $lembur * -1 : 0,
             ]);
 
-             // simpan foto ke storage / server
-             $request->file('photo')->store('public/img/absensi/');
+            // simpan foto ke storage / server
+            $request->file('photo')->store('public/img/absensi/');
 
             // buat log absensi keluar dan simpan ke database
             $todayAbsen->logKeluar()->create([

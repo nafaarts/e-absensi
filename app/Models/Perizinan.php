@@ -17,6 +17,7 @@ class Perizinan extends Model
         'kategori_izin',
         'alasan_izin',
         'jumlah_hari',
+        'kustom_tanggal',
         'status_izin',
         'di_lihat',
         'created_at',

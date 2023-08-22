@@ -14,12 +14,19 @@
             <strong>Berhasil!</strong> {{ session('berhasil') }}
         </div>
     @endif
+
+    @if (session('gagal'))
+        <div class="alert alert-danger" role="alert">
+            <strong>Gagal!</strong> {{ session('gagal') }}
+        </div>
+    @endif
+
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th scope="col">Status</th>
-                    <th scope="col">Waktu</th>
+                    <th scope="col">Tanggal</th>
                     <th scope="col">Katagori</th>
                     <th scope="col">Alasan</th>
                     <th scope="col">Aksi</th>
@@ -35,7 +42,19 @@
                                 'bi-x-circle-fill' => !$item->status_izin,
                             ])></i>
                         </td>
-                        <td>{{ $item->created_at }}</td>
+                        <td>
+                            @php
+                                $range = $item->kustom_tanggal ? json_decode($item->kustom_tanggal, true) : null;
+                            @endphp
+                            @if ($range)
+                                {{ $range['dari'] }}
+                                @if ($range['sampai'])
+                                    <span>sampai</span> {{ $range['sampai'] }}
+                                @endif
+                            @else
+                                {{ $item->created_at->format('Y-m-d') }}
+                            @endif
+                        </td>
                         <td>{{ $item->kategori_izin }}</td>
                         <td>
                             <span class="text-truncate" style="max-width: 300px">
@@ -95,10 +114,22 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="jumlah_hari" class="form-label">Jumlah Hari</label>
-                        <input class="form-control" type="number" min="1" max="6"
-                            value="{{ old('jumlah_hari', 1) }}" id="jumlah_hari" name="jumlah_hari">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="dari_tanggal" class="form-label">Tanggal <span
+                                        class="text-danger">*</span></label>
+                                <input class="form-control" type="date" value="{{ old('dari_tanggal', date('Y-m-d')) }}"
+                                    id="dari_tanggal" name="dari_tanggal">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="sampai_tanggal" class="form-label">Sampai Tanggal</label>
+                                <input class="form-control" type="date" value="{{ old('sampai_tanggal') }}"
+                                    id="sampai_tanggal" name="sampai_tanggal">
+                            </div>
+                        </div>
                     </div>
 
                     <div class="mb-3">
@@ -108,7 +139,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="alasan_izin" class="form-label">Alasan Izin <span class="text-danger">*</span></label>
+                        <label for="alasan_izin" class="form-label">Alasan Izin <span
+                                class="text-danger">*</span></label>
                         <textarea class="form-control" id="alasan_izin" name="alasan_izin" rows="3">{{ old('alasan_izin') }}</textarea>
                     </div>
                 </div>

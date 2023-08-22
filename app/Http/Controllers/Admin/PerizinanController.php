@@ -37,19 +37,26 @@ class PerizinanController extends Controller
 
     public function update(Perizinan $perizinan)
     {
-        // ubah status perizinan terkait di database
-        $perizinan->update([
-            'status_izin' => 1
-        ]);
+        $tanggal = json_decode($perizinan->kustom_tanggal, true);
 
-        if ($perizinan->jumlah_hari > 1) {
-            $data = [];
-            for ($i = 1; $i <= $perizinan->jumlah_hari - 1; $i++) {
-                $absensi = Absensi::create([
-                    'user_id' => $perizinan->absensi->user->id,
-                    "created_at" => now()->addDay($i)->format('Y-m-d H:i:s'),
-                    "updated_at" => now()->addDay($i)->format('Y-m-d H:i:s'),
-                ]);
+        $jumlahHari = 1;
+        if ($tanggal['sampai']) {
+            $jumlahHari = now()->parse($tanggal['dari'])->subDay(1)->diffInDays($tanggal['sampai']);
+        }
+
+        for ($i = 0; $i < $jumlahHari; $i++) {
+            $currentTanggal = now()->parse($tanggal['dari'])->addDay($i);
+
+            if ($currentTanggal->dayOfWeek != 0) {
+                // cek absensi pada hari terkait
+                $absensi = Absensi::whereDate('created_at', $currentTanggal)->first();
+                if (!$absensi) {
+                    $absensi = Absensi::create([
+                        'user_id' => $perizinan->absensi->user->id,
+                        "created_at" => $currentTanggal->format('Y-m-d H:i:s'),
+                        "updated_at" => $currentTanggal->format('Y-m-d H:i:s'),
+                    ]);
+                }
 
                 Perizinan::create([
                     "absensi_id" => $absensi->id,
@@ -57,13 +64,16 @@ class PerizinanController extends Controller
                     "kategori_izin" => $perizinan->kategori_izin,
                     "alasan_izin" => $perizinan->alasan_izin,
                     "jumlah_hari" => $perizinan->jumlah_hari,
+                    'kustom_tanggal' => json_encode(['dari' => $currentTanggal->format('Y-m-d'), 'sampai' => null]),
                     "status_izin" => 1,
                     "di_lihat" => 1,
-                    "created_at" => now()->addDay($i)->format('Y-m-d H:i:s'),
-                    "updated_at" => now()->addDay($i)->format('Y-m-d H:i:s'),
+                    "created_at" => $currentTanggal->format('Y-m-d H:i:s'),
+                    "updated_at" => $currentTanggal->format('Y-m-d H:i:s'),
                 ]);
             }
         }
+
+        $perizinan->delete();
 
         // kembalikan ke halaman index beserta pesan berhasil
         return redirect()->route('perizinan.index')->with('berhasil', 'Status perizinan berhasil diubah.');

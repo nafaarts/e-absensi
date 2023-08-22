@@ -15,7 +15,7 @@
                 <tr>
                     <th scope="col" class="bg-primary">Nama</th>
                     <th scope="col" class="bg-primary">Status</th>
-                    <th scope="col" class="bg-primary">Waktu</th>
+                    <th scope="col" class="bg-primary">Tanggal</th>
                     <th scope="col" class="bg-primary">Kategori</th>
                     <th scope="col" class="bg-primary">Aksi</th>
                 </tr>
@@ -38,7 +38,19 @@
                                 'bi-x-circle-fill text-danger' => !$item->status_izin,
                             ])></i>
                         </td>
-                        <td>{{ $item->created_at }}</td>
+                        <td>
+                            @php
+                                $range = $item->kustom_tanggal ? json_decode($item->kustom_tanggal, true) : null;
+                            @endphp
+                            @if ($range)
+                                {{ $range['dari'] }}
+                                @if ($range['sampai'])
+                                    <span>sampai</span> {{ $range['sampai'] }}
+                                @endif
+                            @else
+                                {{ $item->created_at->format('Y-m-d') }}
+                            @endif
+                        </td>
                         <td>{{ $item->kategori_izin }}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('perizinan.show', $item) }}">

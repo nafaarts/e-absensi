@@ -27,9 +27,20 @@ class PerizinanController extends Controller
         $request->validate([
             'surat_izin' => 'required|mimes:jpg,jpeg,png,pdf',
             'alasan_izin' => 'required',
-            'jumlah_hari' => 'required',
+            'dari_tanggal' => 'required',
+            'sampai_tanggal' => 'nullable',
             'kategori_izin' => 'required',
         ]);
+
+        $jumlahHari = 1;
+        if ($request->sampai_tanggal) {
+            if ($request->dari_tanggal > $request->sampai_tanggal) {
+                return back()->with('gagal', 'Jarak tanggal tidak valid.');
+            }
+            $jumlahHari = now()->parse($request->dari_tanggal)->diffInDays($request->sampai_tanggal);
+        }
+
+        $hariJson = json_encode(['dari' => $request->dari_tanggal, 'sampai' => $request->sampai_tanggal ?? null]);
 
         // ambil data absensi hari ini (jika ada)
         $absensiHariIni = Absensi::where('user_id', auth()->id())->whereDate('created_at', now()->today())->first();
@@ -48,9 +59,10 @@ class PerizinanController extends Controller
         // buat data perizinan dan masukan ke dalam database.
         Perizinan::create([
             'absensi_id' => $absensiHariIni->id,
+            'jumlah_hari' => $jumlahHari,
+            'kustom_tanggal' => $hariJson,
             'surat_izin' => $request->file('surat_izin')->hashName(),
             'alasan_izin' => $request->alasan_izin,
-            'jumlah_hari' => $request->jumlah_hari,
             'kategori_izin' => $request->kategori_izin,
         ]);
 

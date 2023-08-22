@@ -34,8 +34,20 @@
                     <td>{{ $perizinan->status_izin ? 'DIIZINKAN' : 'BELUM DIIZINKAN' }}</td>
                 </tr>
                 <tr>
-                    <th scope="row">Jumlah</th>
-                    <td>{{ $perizinan->jumlah_hari }} hari</td>
+                    <th scope="row">Tanggal</th>
+                    <td>
+                        @php
+                            $range = $perizinan->kustom_tanggal ? json_decode($perizinan->kustom_tanggal, true) : null;
+                        @endphp
+                        @if ($range)
+                            {{ $range['dari'] }}
+                            @if ($range['sampai'])
+                                <span>sampai</span> {{ $range['sampai'] }}
+                            @endif
+                        @else
+                            {{ $perizinan->created_at->format('Y-m-d') }}
+                        @endif
+                    </td>
                 </tr>
                 <tr>
                     <th scope="row">Kategori</th>
